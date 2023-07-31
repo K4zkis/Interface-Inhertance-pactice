@@ -28,5 +28,11 @@ public static ArrayList<Integer> primeNumbers(int limitNumber)
 	}
 	return primes;
 }
-	
+
+
+public static ArrayList<Integer> primeNumbersRecursive(int limitNumber)
+{
+	return null;
+}
+
 }
