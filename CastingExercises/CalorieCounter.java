@@ -27,10 +27,10 @@ public void removeHighCalorieFoodsFromBasket(Basket basket, int calories)
 	{
 		//checking each basket item
 		
-		if (item.getClass().equals(FoodItem.class))
-			//only selecting the fooditems
-			System.out.println(item.getName());
+		if (item instanceof FoodItem)
+			//only selecting the fooditems	
 		{
+			System.out.println(item.getName());
 			FoodItem food = (FoodItem) item;
 			// casting it to a fooditem to get accese to the getcalories method
 			if (food.getCalories()>= calories)// remove from basket if calories above the specified amount
