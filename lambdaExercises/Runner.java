@@ -1,5 +1,6 @@
 package com.fdmgroup.lambdaExercises;
 
+import java.util.ArrayList;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
@@ -105,6 +106,43 @@ public class Runner {
 		deductAmount.accept(account5,50);
 		System.out.println(account1.getBalance());
 		System.out.println(account5.getBalance());
+		
+		// Create an ArrayList of type BankAccount. Add all the BankAccount objects to it.
+		
+		ArrayList<BankAccount> accountList = new ArrayList<>();
+		accountList.add(account1);
+		accountList.add(account2);
+		accountList.add(account3);
+		accountList.add(account4);
+		accountList.add(account5);
+		accountList.add(account6);
+		accountList.add(account7);
+		accountList.add(account8);
+		
+		// Call the ArrayList’s forEach method using a lambda expression to display the account
+		// number, account holder, their account type and their balance.
+		accountList.forEach(account -> System.out.println(account.getAccountNumber()+
+				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+		//Call the ArrayList’s forEach method using a lambda expression to deduct £10 from each
+		//account’s balance. Test by running the code from question 2.
+		accountList.forEach(account -> account.setBalance(account.getBalance()-10));
+		
+		/*
+		 * Call the ArrayList’s removeIf method using a lambda expression to remove accounts which
+			are overdrawn by more than £500. Test by running the code from question 2.
+		 */
+		accountList.removeIf(account -> account.getBalance()<-500);
+		
+		/* Call the ArrayList’s removeIf method using a lambda expression to remove savings accounts.
+		Test by running the code from question 1.
+		*/
+		accountList.removeIf(account ->account.getAccountType().contains("savings"));
+//		accountList.forEach(account -> System.out.println(account.getAccountNumber()+
+//				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+//	
+		
+		
+		
 	}
 
 }
