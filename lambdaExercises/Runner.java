@@ -1,6 +1,7 @@
 package com.fdmgroup.lambdaExercises;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
@@ -119,6 +120,8 @@ public class Runner {
 		accountList.add(account7);
 		accountList.add(account8);
 		
+		ArrayList<BankAccount> accountListForPart2 = (ArrayList<BankAccount>) accountList.clone();
+		
 		// Call the ArrayList’s forEach method using a lambda expression to display the account
 		// number, account holder, their account type and their balance.
 		accountList.forEach(account -> System.out.println(account.getAccountNumber()+
@@ -141,7 +144,55 @@ public class Runner {
 //				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
 //	
 		
+		/*
+		 * Write a lambda expression to implement the Comparator interface. It should sort the ArrayList
+			by account balance. Pass the comparator into the ArrayList’s sort method. Test by running
+			the code from question 1.3.2.
+		 */
+		Comparator<BankAccount> sortByBalance =(comAccount1,comAccount2) 
+				->Double.compare(comAccount1.getBalance(),comAccount2.getBalance()); 
+
+		accountListForPart2.sort(sortByBalance);
 		
+//		accountListForPart2.forEach(account -> System.out.println(account.getAccountNumber()+
+//				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+//		
+		
+		/*
+		 * . Write a lambda expression to implement the Comparator interface. It should sort the ArrayList
+			by account type. Pass the comparator into the ArrayList’s sort method. Test by running the
+			code from question 1.3.2.
+		 */
+		Comparator<BankAccount> sortByType =(comAccount1,comAccount2) 
+				->comAccount1.getAccountType().compareTo(comAccount2.getAccountType());
+		accountListForPart2.sort(sortByType);
+		
+//		accountListForPart2.forEach(account -> System.out.println(account.getAccountNumber()+
+//				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+//		
+		/*
+		 * . Write a lambda expression to implement the Comparator interface. It should sort the ArrayList
+			by account number. Pass the comparator into the ArrayList’s sort method. Test by running the
+			code from question 1.3.2.
+		 */
+		Comparator<BankAccount> sortByAccountNumber =(comAccount1,comAccount2) 
+				->comAccount1.getAccountNumber()-comAccount2.getAccountNumber();
+		accountListForPart2.sort(sortByAccountNumber);
+		
+//		accountListForPart2.forEach(account -> System.out.println(account.getAccountNumber()+
+//				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+//		
+		
+		/*
+		 * Combine the comparators from questions 1 and 2 to make a new comparator which sorts by
+			account type and then account balance. Test by running the code from question 1.3.2
+		 */
+		
+		Comparator<BankAccount> sortByTypeThenBalance = sortByType.thenComparing(sortByBalance);
+		accountListForPart2.sort(sortByTypeThenBalance);
+		
+		accountListForPart2.forEach(account -> System.out.println(account.getAccountNumber()+
+				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
 		
 	}
 
