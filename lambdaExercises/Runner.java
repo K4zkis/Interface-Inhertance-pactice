@@ -2,6 +2,7 @@ package com.fdmgroup.lambdaExercises;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
@@ -124,8 +125,8 @@ public class Runner {
 		
 		// Call the ArrayList’s forEach method using a lambda expression to display the account
 		// number, account holder, their account type and their balance.
-		accountList.forEach(account -> System.out.println(account.getAccountNumber()+
-				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+//		accountList.forEach(account -> System.out.println(account.getAccountNumber()+
+//				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
 		//Call the ArrayList’s forEach method using a lambda expression to deduct £10 from each
 		//account’s balance. Test by running the code from question 2.
 		accountList.forEach(account -> account.setBalance(account.getBalance()-10));
@@ -191,9 +192,36 @@ public class Runner {
 		Comparator<BankAccount> sortByTypeThenBalance = sortByType.thenComparing(sortByBalance);
 		accountListForPart2.sort(sortByTypeThenBalance);
 		
-		accountListForPart2.forEach(account -> System.out.println(account.getAccountNumber()+
-				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+//		accountListForPart2.forEach(account -> System.out.println(account.getAccountNumber()+
+//				" holder: "+account.getAccountHolder()+" type: "+account.getAccountType()+" balance: "+account.getBalance()));
+//	
 		
+		
+		/*
+		 * Create a Map of type <Integer,Integer>. The key will represent the bank code. The value will
+			represents the number of bank accounts for that bank code.
+		 */
+		HashMap<Integer,Integer> bankMap = new HashMap<>();
+		// KEy = BankCode Value = amount of accounts at that Bankcode
+		
+		/*
+		 * Loop through the List of bank accounts. Use the Map.merge() method to populate the Map.
+			Do not use the put method.
+		 */
+		BiFunction<BankAccount, Integer, Integer> something = (account,)
+		bankMap.merge(null, null, null);
+		// Key, Vaue, Bifunction
+		
+		/*
+		 * Create another Map, this time of type <Integer,Double>. The key will represent the bank
+			code. The value will represent the sum of the account balances for that bank code.
+		 */
+		
+		
+		/*
+		 * Loop through the List of bank accounts. Use the Map.merge() method to populate the Map.
+			Do not use the put method.
+		 */
 	}
 
 }
