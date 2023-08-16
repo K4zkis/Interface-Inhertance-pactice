@@ -208,7 +208,7 @@ public class Runner {
 		 * Loop through the List of bank accounts. Use the Map.merge() method to populate the Map.
 			Do not use the put method.
 		 */
-		BiFunction<BankAccount, Integer, Integer> something = (account,)
+		BiFunction<BankAccount, Integer, Integer> something = (account4)
 		bankMap.merge(null, null, null);
 		// Key, Vaue, Bifunction
 		
