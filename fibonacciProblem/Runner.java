@@ -6,5 +6,6 @@ public class Runner {
 		System.out.println(FibCalculator.calculateFibAtPosition(8));
 		System.out.println(FibCalculator.fibWithMemo(35));
 	}
+	
 
 }
