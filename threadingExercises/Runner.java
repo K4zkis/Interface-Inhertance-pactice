@@ -1,5 +1,6 @@
 package com.fdmgroup.threadingExercises;
 
+
 public class Runner {
 
 	public static void main(String[] args) {
@@ -13,6 +14,8 @@ public class Runner {
 		ThreadManagerChild childThread = new ThreadManagerChild();
 		childThread.createThreads(6);
 		childThread.runThreads();
+
+	
+		}
 	}
 
-}
